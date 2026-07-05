@@ -1,4 +1,7 @@
-
+'''
+Date: 07-02-2026
+Higher Order Functions
+'''
 # function as an input: abstract stream first, implement later
 # 复用，模块化
 def improve(update, close, guess):
@@ -58,3 +61,24 @@ def square_root_newton(a):
         return 2 * x
 
     return find_zero(f, df)
+
+
+'''
+Date: 07-04-2026 
+'''
+def summation(n, term):
+
+    k, total = 1, 0
+    while k<n:
+        k, total = k+1, total+term(k)
+
+    return total
+
+
+def cube(x):
+    return x ** 3
+
+def summ_cube(n):
+    return summation(n, cube)
+
+print(summ_cube(5))
