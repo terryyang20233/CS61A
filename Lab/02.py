@@ -106,4 +106,4 @@ def count_cond(condition):
         while i <= N:
             i, count = i+1, count + condition(N, i)
         return count
-    return count_n 
+    return count_n
