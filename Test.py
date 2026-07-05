@@ -12,14 +12,15 @@ def make_repeater(f, n):
     390625
     """
     "*** YOUR CODE HERE ***"
-    # Recursive version
+    # Recursive version happy happy happy
+    # what about this 
     # if n==1:
     #     return f
     # return lambda x: f(make_repeater(f, n-1)(x))
 
-    def repeat(x):
-        k = 1
-        while k <= n:
+    def repeat(x)  
+        k = 1 
+	while k <= n:
             k, x = k+1, f(x)
         return x
 
