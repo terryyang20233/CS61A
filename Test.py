@@ -12,7 +12,7 @@ def make_repeater(f, n):
     390625
     """
     "*** YOUR CODE HERE ***"
-    # Recursive version happy happy happy
+    # Recursive version 
     # what about this 
     # if n==1:
     #     return f
