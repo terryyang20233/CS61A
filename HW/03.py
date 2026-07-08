@@ -77,3 +77,27 @@ def interleaved_sum(n, odd_func, even_func):
         return odd_func(1)
     else:
         return interleaved_sum(n-1, odd_func, even_func) + even_or_odd(n)*odd_func(n) + (1-even_or_odd(n))*even_func(n)
+
+
+''' One alternative version here
+    def sum_from(k):
+        if k > n:
+            return 0
+        elif k == n:
+            return odd_func(k)
+        else:
+            return odd_func(k) + even_func(k+1) + sum_from(k + 2) # 每次跳过两层，避开奇偶问题
+    return sum_from(1)
+
+'''
+
+''' Another alternative version here
+    def helper(k, f1, f2):
+        if k > n:
+            return 0
+        # 当前数字 k 永远套用 f1，下一层让 k+1，并将 f1 和 f2 互换位置！
+        return f1(k) + helper(k + 1, f2, f1)
+        
+    return helper(1, odd_func, even_func)
+
+'''
