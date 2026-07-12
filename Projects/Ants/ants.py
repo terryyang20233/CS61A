@@ -271,10 +271,45 @@ class FireAnt(Ant):
 
 # BEGIN Problem 6
 # The WallAnt class
+class WallAnt(Ant):
+    """WallAnt is thick enough to resist bees"""
+
+    name = 'Wall'
+    food_cost = 4
+    implemented = True
+
+    def __init__(self, health=4):
+        super().__init__(health)
+
 # END Problem 6
 
 # BEGIN Problem 7
 # The HungryAnt Class
+class HungryAnt(Ant):
+    """HungryAnt kills whatever bee that is in his place."""
+    name = 'Hungry'
+    food_cost = 4
+    implemented = True
+    chew_cooldown = 3
+
+
+    def __init__(self, health=1):
+        super().__init__(health)
+        self.cooldown = 0
+
+    def action(self, gamestate):
+        if self.cooldown > 0:
+            self.cooldown -= 1
+        else:
+            target_bee = random_bee(self.place.bees)
+            if target_bee is not None:
+                target_bee.reduce_health(target_bee.health)
+            self.cooldown = self.chew_cooldown
+
+
+
+
+
 # END Problem 7
 
 
